@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.blur-load {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.blur-load::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  animation: pulse 2.5s infinite;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes pulse {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+.blur-load:nth-of-type(1) {
+  background-image: url(photo/forest-small.png);
+}
+
+.blur-load:nth-of-type(2) {
+  background-image: url(photo/mountains-small.png);
+}
+
+.blur-load.loaded::before {
+  animation: none; /* Zaustavlja animaciju kada je slika učitana */
+}
+
+.blur-load.loaded > img {
+  opacity: 1;
+}
+
+.blur-load > img {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
