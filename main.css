@@ -10,45 +10,6 @@ img {
   object-position: center;
 }
 
-section {
-  font-size: 2rem;
-  padding: 2rem;
-  background-color: #333;
-  color: white;
-}
-
-.wrapper {
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  perspective: 10px;
-}
-
-header {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  transform-style: preserve-3d;
-  z-index: -1;
-}
-
-.background,
-.foreground {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.title {
-  font-size: 7rem;
-  color: white;
-  text-shadow: 0 0 5px black;
-}
-
-/* blur */
 .blur-load {
   position: relative;
   background-size: cover;
@@ -59,7 +20,7 @@ header {
   content: "";
   position: absolute;
   inset: 0;
-  animation: pulse 2.5s infinite;
+  animation: pulse 2s infinite;
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -68,7 +29,7 @@ header {
     background-color: rgba(255, 255, 255, 0);
   }
   50% {
-    background-color: rgba(255, 255, 255, 0.2); /* add more blur intensity */
+    background-color: rgba(255, 255, 255, 0.5);
   }
   100% {
     background-color: rgba(255, 255, 255, 0);
@@ -76,11 +37,11 @@ header {
 }
 
 .blur-load:nth-of-type(1) {
-  background-image: url(photo/forest-small.png);
+  background-image: url("https://iili.io/JMObq5x.png");
 }
 
 .blur-load:nth-of-type(2) {
-  background-image: url(photo/mountains-small.png);
+  background-image: url("https://iili.io/JMS5GWJ.png");
 }
 
 .blur-load.loaded::before {
@@ -94,4 +55,7 @@ header {
 .blur-load > img {
   opacity: 0;
   transition: opacity 200ms ease-in-out;
+}
+.background {
+  visibility: hidden;
 }

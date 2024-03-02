@@ -11,74 +11,23 @@
     <div class="wrapper">
       <header>
         <div class="blur-load">
-          <img
-            class="background"
-            src="photo/forest.png"
-            loading="lazy"
-            alt=""
-          />
+          <img src="https://iili.io/JMObfJj.png" class="background" alt="" />
         </div>
         <div class="blur-load">
-          <img
-            class="foreground"
-            src="photo/mountains.png"
-            loading="lazy"
-            alt=""
-          />
+          <img src="https://iili.io/JMkWN3b.png" class="foreground" alt="" />
         </div>
-        <h1 class="title">Welcome</h1>
       </header>
-      <section>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quod
-        placeat error odit sit fuga porro aperiam quam voluptatibus nisi
-        officiis consequuntur accusantium nobis a consequatur similique,
-        doloribus molestias dolores cupiditate, illum commodi vitae. Nulla,
-        deserunt dolorem! Reprehenderit, sunt odio? Aspernatur dolorum unde
-        fuga, architecto provident odio, veritatis perferendis quaerat vero iure
-        consequatur, eveniet nulla. Itaque non, repellat voluptatum numquam
-        obcaecati dolor esse dicta enim blanditiis reiciendis tenetur cupiditate
-        dolorum, necessitatibus veniam quo ratione nisi sed magni! Minima optio
-        temporibus necessitatibus tempore ipsa obcaecati consequuntur, dolore
-        repudiandae molestiae voluptatum dicta atque nulla repellendus quasi
-        voluptas natus! Minus fugit exercitationem cum quaerat, sapiente hic nam
-        deserunt quo? Perspiciatis impedit optio reprehenderit! Cum illum ipsa
-        quas atque dignissimos, optio, officia nostrum officiis laudantium
-        asperiores esse sapiente omnis quae dolorum fugiat? Beatae ipsa maiores
-        quasi obcaecati, quis praesentium dolorem labore sapiente, culpa ut
-        deleniti nulla recusandae eligendi rerum sunt non laudantium nemo ad
-        natus esse quas provident! Ipsum iure autem facere repellendus officiis
-        minus eos neque minima quos rerum asperiores, vitae iusto voluptatibus
-        quo consectetur a, sequi expedita molestias eum odio tempora temporibus
-        similique deleniti non! Enim voluptas molestias quisquam ratione.
-        Laudantium velit a minima porro id consequatur veniam tempore ipsum
-        mollitia veritatis culpa, ratione cum iste excepturi quis, voluptatum
-        aliquam quisquam rem dolorem iure modi eius? Laborum autem sint, atque
-        accusamus at praesentium non illum pariatur quam rem quas inventore
-        cumque tempora blanditiis deleniti sequi porro? Aspernatur, accusamus
-        officia fugit ab, quibusdam corrupti excepturi ex dicta nesciunt est
-        velit officiis culpa sequi repellendus minima ea, nostrum distinctio
-        placeat omnis vel eum nobis veritatis vitae. Sapiente nisi molestiae
-        quia, obcaecati, eum ex temporibus corrupti iste earum facere cupiditate
-        dolorum velit impedit consectetur ratione mollitia esse officia. Neque
-        doloremque vero illum eaque sed assumenda nostrum cupiditate ut,
-        deserunt, inventore soluta ducimus eius! Repellendus, veritatis?
-      </section>
     </div>
     <script>
       const blurDivs = document.querySelectorAll(".blur-load");
       blurDivs.forEach((div) => {
-        const img = document.querySelector("img");
-
+        div.classList.add("loaded");
+        const img = div.querySelector("img");
         function loaded() {
-          div.classList.add("loaded");
           div.style.backgroundImage = "none";
-
-          const fragment = document.createDocumentFragment();
-          const element = document.querySelector(".blur-load");
-          while (element.firstChild) {
-            fragment.appendChild(element.firstChild);
-          }
-          element.parentNode.replaceChild(fragment, element);
+          div.parentNode.insertBefore(img, div);
+          div.parentNode.removeChild(div);
+          img.style.visibility = "visible";
         }
         if (img.complete) {
           loaded();
