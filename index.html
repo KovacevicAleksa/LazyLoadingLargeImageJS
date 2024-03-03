@@ -32,9 +32,7 @@
         const img = div.querySelector("img");
         function loaded() {
           div.classList.add("loaded");
-          div.style.backgroundImage = "none";
           div.parentNode.insertBefore(img, div);
-          div.parentNode.removeChild(div);
           img.style.visibility = "visible";
         }
         if (img.complete) {
